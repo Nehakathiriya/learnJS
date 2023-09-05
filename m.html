@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Income Tax Calculator</h1>
+        <form id="taxCalculatorForm">
+            <label for="income">Income (in INR):</label>
+            <input type="number" id="income" name="income" required><br><br>
+
+            <button type="submit">Calculate Tax</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("taxCalculatorForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const income = parseFloat(document.getElementById("income").value);
+            let tax = 0;
+
+            if (income <= 300000) {
+                tax = 0;
+            } else if (income <= 600000) {
+                tax = (income - 300000) * 0.05;
+            } else if (income <= 900000) {
+                tax = (300000 * 0.05) + (income - 600000) * 0.10;
+            } else if (income <= 1200000) {
+                tax = (300000 * 0.05) + (300000 * 0.10) + (income - 900000) * 0.15;
+            } else if (income <= 1500000) {
+                tax = (300000 * 0.05) + (300000 * 0.10) + (300000 * 0.15) + (income - 1200000) * 0.20;
+            } else {
+                tax = (300000 * 0.05) + (300000 * 0.10) + (300000 * 0.15) + (300000 * 0.20) + (income - 1500000) * 0.30;
+            }
+
+            document.getElementById("result").innerHTML = `Income: INR ${income.toFixed(2)}<br>Tax: INR ${tax.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
