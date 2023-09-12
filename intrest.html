@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/intrest.css">
+</head>
+<body>
+
+    <form action="" id="calculator" onsubmit="handlesubmit()">
+        <input type="number" name="principal" id="principal" placeholder="Enter Amount">
+        <br><br>
+        <input type="number" name="rate" id="rate" placeholder="Enter rate">
+        <br><br>
+        <input type="number" name="time" id="time" placeholder="Enter time">
+        <select name="duration" id="duration">
+            <option value="0">--select--</option>
+            <option value="y">YEAR</option>
+            <option value="m">MONTH</option>
+        </select>
+        <br><br>
+        <button>submit</button>
+        <!-- <input type="submit"><br> -->
+        <p><span id="result"> Result is:</span></p>
+        
+
+    </form>
+    <script src="js/intrest.js"></script>
+</body>
+</html>
